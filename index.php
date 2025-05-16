@@ -1,7 +1,7 @@
 <?php
 
 include 'components/connect.php';
-
+$date=date('Y-m-d');
 if(isset($_COOKIE['user_id'])){
    $user_id = $_COOKIE['user_id'];
 }else{
@@ -23,8 +23,8 @@ if(isset($_POST['check'])){
       $total_rooms += $fetch_bookings['rooms'];
    }
 
-   // if the hotel has total 30 rooms 
-   if($total_rooms >= 30){
+   // if the hotel has total 3 rooms 
+   if($total_rooms >=3){
       $warning_msg[] = 'rooms are not available';
    }else{
       $success_msg[] = 'rooms are available';
@@ -61,7 +61,7 @@ if(isset($_POST['book'])){
       $total_rooms += $fetch_bookings['rooms'];
    }
 
-   if($total_rooms >= 30){
+   if($total_rooms >= 3){
       $warning_msg[] = 'rooms are not available';
    }else{
 
@@ -179,11 +179,11 @@ if(isset($_POST['send'])){
       <div class="flex">
          <div class="box">
             <p>check in <span>*</span></p>
-            <input type="date" name="check_in" class="input" required>
+            <input type="date" min="<?php echo $date ?>" name="check_in" class="input" required>
          </div>
          <div class="box">
             <p>check out <span>*</span></p>
-            <input type="date" name="check_out" class="input" required>
+            <input type="date" min="<?php echo $date?>"  name="check_out" class="input" required>
          </div>
          <div class="box">
             <p>adults <span>*</span></p>
@@ -237,7 +237,7 @@ if(isset($_POST['send'])){
       </div>
       <div class="content">
          <h3>best staff</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi laborum maxime eius aliquid temporibus unde?</p>
+         <p>Our dedicated and experienced team committed to making your stay exceptional.</p>
          <a href="#reservation" class="btn">make a reservation</a>
       </div>
    </div>
@@ -248,7 +248,7 @@ if(isset($_POST['send'])){
       </div>
       <div class="content">
          <h3>best foods</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi laborum maxime eius aliquid temporibus unde?</p>
+         <p>Delicious and freshly prepared meals served at Valley Hotel, offering a variety of local and international cuisine.</p>
          <a href="#contact" class="btn">contact us</a>
       </div>
    </div>
@@ -259,7 +259,7 @@ if(isset($_POST['send'])){
       </div>
       <div class="content">
          <h3>swimming pool</h3>
-         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi laborum maxime eius aliquid temporibus unde?</p>
+         <p>A clean and well-maintained swimming pool at Valley Hotel, perfect for relaxation.</p>
          <a href="#availability" class="btn">check availability</a>
       </div>
    </div>
@@ -277,37 +277,37 @@ if(isset($_POST['send'])){
       <div class="box">
          <img src="images/icon-1.png" alt="">
          <h3>food & drinks</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sunt?</p>
+         <p>Valley Hotel offers a wide selection of tasty food and refreshing drinks to satisfy every guest’s appetite.</p>
       </div>
 
       <div class="box">
          <img src="images/icon-2.png" alt="">
          <h3>outdoor dining</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sunt?</p>
+         <p>Enjoy scenic views and fresh air with Valley Hotel’s outdoor dining experience, perfect for relaxed and memorable meals.</p>
       </div>
 
       <div class="box">
          <img src="images/icon-3.png" alt="">
          <h3>beach view</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sunt?</p>
+         <p>Relax and unwind with breathtaking beach views at Valley Hotel, where the sea meets comfort and tranquility.</p>
       </div>
 
       <div class="box">
          <img src="images/icon-4.png" alt="">
          <h3>decorations</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sunt?</p>
+         <p>Elegant and stylish decoration throughout Valley Hotel creates a warm, welcoming, and luxurious atmosphere for every guest.</p>
       </div>
 
       <div class="box">
          <img src="images/icon-5.png" alt="">
          <h3>swimming pool</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sunt?</p>
+         <p>Valley Hotel’s swimming pool offers a refreshing escape with crystal-clear water and a serene, relaxing ambiance.</p>
       </div>
 
       <div class="box">
          <img src="images/icon-6.png" alt="">
          <h3>resort beach</h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sunt?</p>
+         <p>Valley Hotel’s resort beach features soft sands, gentle waves, and a peaceful setting for the perfect seaside getaway.</p>
       </div>
 
    </div>
@@ -348,11 +348,11 @@ if(isset($_POST['send'])){
          </div>
          <div class="box">
             <p>check in <span>*</span></p>
-            <input type="date" name="check_in" class="input" required>
+            <input type="date" min="<?php echo $date ?>"  name="check_in" class="input" required>
          </div>
          <div class="box">
             <p>check out <span>*</span></p>
-            <input type="date" name="check_out" class="input" required>
+            <input type="date" min="<?php echo $date ?>"  name="check_out" class="input" required>
          </div>
          <div class="box">
             <p>adults <span>*</span></p>
@@ -378,7 +378,7 @@ if(isset($_POST['send'])){
             </select>
          </div>
       </div>
-      <input type="submit" value="book now" name="book" class="btn">
+      <input type="submit" value="Reserve now" name="book" class="btn">
    </form>
 
 </section>
@@ -424,23 +424,19 @@ if(isset($_POST['send'])){
          <h3 class="title">frequently asked questions</h3>
          <div class="box active">
             <h3>how to cancel?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sunt aspernatur excepturi eos! Quibusdam, sapiente.</p>
+            <p>In valley hotel you can cancel just by cancelling your booking or you can send us a message.</p>
          </div>
          <div class="box">
             <h3>is there any vacancy?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+            <p>Contact us</p>
          </div>
          <div class="box">
             <h3>what are payment methods?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
-         </div>
-         <div class="box">
-            <h3>how to claim coupons codes?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+            <p>Make a payment while check in at a hotel.</p>
          </div>
          <div class="box">
             <h3>what are the age requirements?</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam neque quaerat mollitia ratione? Soluta!</p>
+            <p>Any age are welcomed in here.</p>
          </div>
       </div>
 
@@ -454,44 +450,15 @@ if(isset($_POST['send'])){
 
 <section class="reviews" id="reviews">
 
-   <div class="swiper reviews-slider">
-
       <div class="swiper-wrapper">
          <div class="swiper-slide box">
-            <img src="images/pic-1.png" alt="">
-            <h3>john deo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
+            <img src="images/pic-1.jpg" class="swiper-slide" alt="">
+            <h3>Suman Bista</h3>
+            <p> The developer of Valley Hotel, dedicated to providing guests with a seamless and exceptional stay.</p>
          </div>
-         <div class="swiper-slide box">
-            <img src="images/pic-2.png" alt="">
-            <h3>john deo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-         </div>
-         <div class="swiper-slide box">
-            <img src="images/pic-3.png" alt="">
-            <h3>john deo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-         </div>
-         <div class="swiper-slide box">
-            <img src="images/pic-4.png" alt="">
-            <h3>john deo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-         </div>
-         <div class="swiper-slide box">
-            <img src="images/pic-5.png" alt="">
-            <h3>john deo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-         </div>
-         <div class="swiper-slide box">
-            <img src="images/pic-6.png" alt="">
-            <h3>john deo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates blanditiis optio dignissimos eaque aliquid explicabo.</p>
-         </div>
-      </div>
+         
 
       <div class="swiper-pagination"></div>
-   </div>
-
 </section>
 
 <!-- reviews section ends  -->
